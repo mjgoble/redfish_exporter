@@ -2,7 +2,7 @@
 version: "2"
 services:
   redfish_exporter:
-    image: mattgoble/redfish_exporter:test
+    image: mattgoble/redfish_exporter:latest
     container_name: redfish_exporter
     volumes:
       - ./config.yml.example:/etc/prometheus/redfish_exporter.yml
