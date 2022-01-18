@@ -1,0 +1,11 @@
+---
+version: "2"
+services:
+  redfish_exporter:
+    image: mattgoble/redfish_exporter:test
+    container_name: redfish_exporter
+    volumes:
+      - ./config.yml.example:/etc/prometheus/redfish_exporter.yml
+    ports:
+      - 127.0.0.1:9610:9610
+    restart: unless-stopped
