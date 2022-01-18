@@ -10,7 +10,7 @@ Version: VERSION
 Release: 1%{?dist}
 Summary: Prometheus redfish exporter.
 License: MIT
-URL:     https://github.com/jenningsloy318/redfish_exporter
+URL:     https://github.com/mjgoble/redfish_exporter
 
 Source0: %{name}
 Source1: %{name}.service
