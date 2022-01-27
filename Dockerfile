@@ -26,5 +26,5 @@ FROM docker.io/library/centos:7
 COPY --from=builder /go/src/github.com/mjgoble/redfish_exporter/build/redfish_exporter /usr/local/bin/redfish_exporter
 RUN mkdir /etc/prometheus
 ENTRYPOINT [ "/usr/local/bin/redfish_exporter" ]
-CMD ["--config.file /etc/prometheus/redfish_exporter.yml"]
+CMD ["--config.file=/etc/prometheus/redfish_exporter.yml"]
 
