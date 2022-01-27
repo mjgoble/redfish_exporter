@@ -578,8 +578,6 @@ func parseProcessor(ch chan<- prometheus.Metric, systemHostName string, processo
 	processorTotalThreads := processor.TotalThreads
 	processorState := processor.Status.State
 	processorHealthState := processor.Status.Health
-	processorMaxTDPWatts := processor.MaxTDPWatts
-	processorTDPWatts := processor.TDPWatts
 
 	systemProcessorLabelValues := []string{systemHostName, "processor", processorName, processorID, processorManufacturer, processorModel, processorSocket}
 
@@ -593,8 +591,6 @@ func parseProcessor(ch chan<- prometheus.Metric, systemHostName string, processo
 	}
 	ch <- prometheus.MustNewConstMetric(systemMetrics["system_processor_total_threads"].desc, prometheus.GaugeValue, float64(processorTotalThreads), systemProcessorLabelValues...)
 	ch <- prometheus.MustNewConstMetric(systemMetrics["system_processor_total_cores"].desc, prometheus.GaugeValue, float64(processorTotalCores), systemProcessorLabelValues...)
-	ch <- prometheus.MustNewConstMetric(systemMetrics["system_processor_max_tdp_watts"].desc, prometheus.GaugeValue, float64(processorMaxTDPWatts), systemProcessorLabelValues...)
-	ch <- prometheus.MustNewConstMetric(systemMetrics["system_processor_tdp_watts"].desc, prometheus.GaugeValue, float64(processorTDPWatts), systemProcessorLabelValues...)
 
 }
 func parseVolume(ch chan<- prometheus.Metric, systemHostName string, volume *redfish.Volume, wg *sync.WaitGroup) {
