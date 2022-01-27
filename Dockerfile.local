@@ -1,0 +1,7 @@
+FROM docker.io/library/centos:8
+LABEL maintainer="Matt Goble <matt.goble@hotmail.co.nz>"
+
+COPY build/redfish_exporter /usr/local/bin/redfish_exporter
+COPY config.yml.example /etc/prometheus/redfish_exporter.yml
+ENTRYPOINT [ "/usr/local/bin/redfish_exporter" ]
+CMD ["--config.file /etc/prometheus/redfish_exporter.yml"]
